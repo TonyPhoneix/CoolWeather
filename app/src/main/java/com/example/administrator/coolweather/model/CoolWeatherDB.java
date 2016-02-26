@@ -95,6 +95,7 @@ public class CoolWeatherDB  {
     }
     /**
      * 将Country实例存储到数据库。
+     * ca
      */
     public void saveCountry(Country country){
         if (country!=null){
