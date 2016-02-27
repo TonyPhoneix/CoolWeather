@@ -26,10 +26,13 @@ public class CoolWeatherDB  {
 
     private SQLiteDatabase database;
 
-    private CoolWeatherDB(Context context){
+    public CoolWeatherDB(Context context){
         //初始化类
         coolWeatherOpenHelper = new CoolWeatherOpenHelper(context,DATABASE_NAME,null,VERSION);
         database = coolWeatherOpenHelper.getWritableDatabase();
+    }
+
+    private CoolWeatherDB(){
     }
 
     public synchronized static CoolWeatherDB getInstance(Context context){
@@ -44,8 +47,8 @@ public class CoolWeatherDB  {
     public void saveProvince(Province province){
        if (province!=null){
            ContentValues values = new ContentValues();
-           values.put("province_name",province.getProvinceName());
            values.put("province_code",province.getProvinceCode());
+           values.put("province_name",province.getProvinceName());
            database.insert("Province",null,values);
        }
     }
@@ -80,14 +83,14 @@ public class CoolWeatherDB  {
     /**
      * 从数据库读取某省下所有的城市信息。
      */
-    public List<City> loadCities(){
+    public List<City> loadCities(int province_id){
         List<City> list = new ArrayList<City>();
-        Cursor cursor = database.query("City",null,null,null,null,null,null);
+        Cursor cursor = database.rawQuery("select * from City where province_id = ?",new String[]{province_id+""});
         while (cursor.moveToNext()){
             City city = new City();
             city.setId(cursor.getInt(cursor.getColumnIndex("id")));
-            city.setCityName(cursor.getString(cursor.getColumnIndex("City_name")));
-            city.setCityCode(cursor.getString(cursor.getColumnIndex("City_code")));
+            city.setCityName(cursor.getString(cursor.getColumnIndex("city_name")));
+            city.setCityCode(cursor.getString(cursor.getColumnIndex("city_code")));
             city.setProvince_id(cursor.getInt(cursor.getColumnIndex("province_id")));
             list.add(city);
         }
@@ -109,9 +112,9 @@ public class CoolWeatherDB  {
     /**
      * 从数据库读取某省下所有的城市信息。
      */
-    public List<Country> loadCountries(){
+    public List<Country> loadCountries(int city_id){
         List<Country> list = new ArrayList<Country>();
-        Cursor cursor = database.query("Country",null,null,null,null,null,null);
+        Cursor cursor = database.rawQuery("select * from Country where city_id = ?",new String[]{city_id+""});
         while (cursor.moveToNext()){
             Country country = new Country();
             country.setId(cursor.getInt(cursor.getColumnIndex("id")));

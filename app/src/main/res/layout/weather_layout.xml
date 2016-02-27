@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#484E61">
+        <Button
+            android:id="@+id/switch_city"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/home" />
+        <TextView
+            android:id="@+id/city_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textColor="#ffffff" />
+        <Button
+            android:id="@+id/refresh_weather"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/refresh" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.3"
+        android:background="#c0c0c0">
+
+        <TextView
+            android:id="@+id/current_date"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="20dp"
+            />
+
+
+        <TextView
+            android:id="@+id/publishText"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:textColor="#fff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:id="@+id/tmeperature_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:textColor="#fff"
+            android:textSize="100dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:layout_centerHorizontal="true"
+            android:textSize="100dp"
+            android:text="°"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@id/tmeperature_text"/>
+        <TextView
+            android:id="@+id/weather_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tmeperature_text"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:background="#c0c0c0"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/high_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:textSize="30dp"
+            android:textColor="#fff"
+            android:layout_marginLeft="30dp"
+            android:gravity="center" />
+        <TextView
+            android:id="@+id/low_temp"
+            android:layout_below="@id/high_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:textSize="30dp" />
+        <TextView
+            android:id="@+id/wind_direction"
+            android:layout_below="@id/low_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:textSize="30dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:background="#c0c0c0"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="生活小贴士~"
+            android:layout_gravity="center"
+            android:textColor="#fff"
+            />
+
+        <TextView
+            android:id="@+id/cold_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:layout_marginLeft="20dp"
+            android:textSize="25dp"
+            />
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:text="宝贝知道了么~~~照顾好自己哦~@L"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff0000"
+            android:textSize="16dp"/>
+    </LinearLayout>
+</LinearLayout>

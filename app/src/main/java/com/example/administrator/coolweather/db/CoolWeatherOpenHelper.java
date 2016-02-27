@@ -11,30 +11,12 @@ public class CoolWeatherOpenHelper extends SQLiteOpenHelper {
 
 
     //省份建表语句
-    public static final String CREATE_PROVINCE = "create table Province\n" +
-            "(\n" +
-            " id integer primary key autoincrement,\n" +
-            " province_name text,\n" +
-            " province_code text\n" +
-            ");\n";
-
+    public static final String CREATE_PROVINCE ="create table Province(id integer primary key autoincrement,province_code text,province_name text);";
     //城市建表语句
-    public static final String CREATE_CITY = "create table City\n" +
-            "(\n" +
-            " id integer primary key autoincrement,\n" +
-            " city_name text,\n" +
-            " city_code text,\n" +
-            " province_id integer\n" +
-            ");";
+    public static final String CREATE_CITY = "create table City(id integer primary key autoincrement, city_name text,city_code text, province_id integer);";
 
     //县城建表语句
-    public static final String CREATE_COUNTRY = "create table Country\n" +
-            "(\n" +
-            "  id integer primary key autoincrement,\n" +
-            "  country_name text,\n" +
-            "  country_code text,\n" +
-            "  city_id integer\n" +
-            ");";
+    public static final String CREATE_COUNTRY = "create table Country( id integer primary key autoincrement,country_name text, country_code text,city_id integer);";
 
 
     public CoolWeatherOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
